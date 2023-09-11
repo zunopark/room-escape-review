@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# 방탈출 마니아를 위한 전국 방탈출 리뷰 및 검색 사이트
+## 페이지 구성
+- [ ] 메인
+- [ ] 각 테마 페이지
+- [ ] 검색 페이지
+- [ ] 어드민 페이지
+- [ ] 로그인 페이지
+- [ ] 회원 프로필 페이지
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Container - Presenter 패턴
+* Container : Request APIs.
+* Presenter : UI, no logic ONLY show UI based on responses of Containers.
+* Routes 폴더 아래 이름으로 서비스 페이지 구분(HOME, DETAIL, SEARCH...)
 
-## Available Scripts
+## Component 구성
+1. Section : theme 컴포넌트를 여러개 포함할 수 있는 컴포넌트로 테마 R을 보여주는 역할
+2. Theme : 각 방탈출 테마의 정보를 보여주는 UI
+3. Header : 각 페이지로 이동할 수 있는 모든 페이지 공통 헤더
+4. Comment : 후기 댓글
+5. Detail : 디테일 페이지 영역에서 comment 부분을 제외하고
+6. Search : 검색 컴포넌트 UI
 
-In the project directory, you can run:
+## 서비스 핵심 API 구성
+- [ ] 전국 베스트 테마(사용자 평점 기반)
+- [ ] 지역별 베스트 테마(사용자 평점 기반 지역별 필터링)
+- [ ] 카테고리별 베스트 테마(사용자 평점 기반 카테고리 필터링)
+- [ ] 전국 테마 후기 많은 순
+- [ ] 전국 테마 사용자 체감 난이도 순
+- [ ] 전국 테마 사용자 체감 공포도 순
+- [ ] 테마 이름/지역/방탈출 카페 이름 통합 검색
 
-### `npm start`
+## 기타 필수 기능
+- [ ] 회원가입(카카오, 네이버, 구글)
+- [ ] 방탈출 테마 후기 / 카페 후기 -> 코멘트 댓글 남기기
+- [ ] 각 유저별 방 클리어 개수, 후기 남긴 순으로 유저 등급 설정
+- [ ] 각 날짜별 해당하는 테마 예약 현황 알려주기 -> 추가 기능으로 넣기
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 유저 등급(후기 남긴 것을 해당 테마를 클리어했다고 판단)
+1. ~10방 : 뉴비
+2. 11방 ~ 30방 : 초보 탈출러
+3. 31방 ~ 50방 : 중수 탈출러
+4. 51방 ~ 80방 : 고수 탈출러
+5. 81방 ~ 100방 : 전문 탈출러
+5. 101방 ~ : 전설 탈출러
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 유저 프로필 API
+1. 해당 유저가 몇방을 클리어 했는지
+2. 해당 유저가 클리어 한 방의 평균 난이도
+3. 해당 유저가 가장 많이 즐긴 카테고리

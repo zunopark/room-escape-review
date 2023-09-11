@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.image-container {
+  position: relative;
+  margin-bottom: 5px;
+  &:hover {
+    .theme-image {
+      opacity: 0.3;
+    }
+  }
+}
+
+.theme-image {
+  height: 180px;
+  background-size: cover;
+  border-radius: 4px;
+  background-position: center center;
+  transition: opacity 0.1s linear;
+}
