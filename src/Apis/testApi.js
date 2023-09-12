@@ -1,5 +1,6 @@
 import axios from "axios";
 
+// UI 잡기 위해서 임시로 사용할 API
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   params: {

@@ -52,26 +52,28 @@ const testComment = {
   isSpoiler : false, // 스포일러 신고 여부, 신고가 들어왔다면 해당 후기 코멘트가 true 로 변하고 어드민 페이지에서 코멘트 중 true 것들 "스포일러 댓글로 내가 직접 변경"
 }
 
-const Theme = ({id}) => {
-  const handleImageOnError = (e) =>{
+const Theme = ({ item }) => {
+  const handleImageOnError = (e) => {
     e.target.src = defaultImage;
   }
 
     return (
-        <Link to={`/theme/${id}`}>
+        <Link to={`/theme/${item.id}`}>
         <div className="theme-container">
           <div className="image-container">
             <img
             className="theme-image"
             alt="theme"
             src={
-                testTheme.themeUrl
-                  ? testTheme.themeUrl
+              item.themeUrl
+                  ? item.themeUrl
                   : require("../Assets/noImage.png")
               }
             onError={handleImageOnError}
             />
-            <span className="theme-rating">{testTheme.userRating}</span>
+            <span className="theme-rating">{item.title}</span>
+            <span className="theme-rating">{item.description}</span>
+            <span className="theme-rating">{item.userRating}</span>
           </div>
         </div>
       </Link>

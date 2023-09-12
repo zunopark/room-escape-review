@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HomePresenter from "./HomePresenter";
 import { testAPI } from "../../Apis/testApi";
+import { ThemeApi } from '../../Apis/ThemeApi';
 
 const HomeContainer = () => {
     const [data, setData] = useState([]);
@@ -12,19 +13,23 @@ const HomeContainer = () => {
     useEffect(() => {
       async function fetchTestData() {
         try {
-          const {
-            data: { results: nowPlaying },
-          } = await testAPI.nowPlaying();
-          const {
-            data: { results: upcoming },
-          } = await testAPI.upcoming();
-          const {
-            data: { results: popular },
-          } = await testAPI.popular();
-          
-          setData(nowPlaying)
-          setData(upcoming)
-          setData(popular)
+          // UI 잡기 위해서 임시로 사용할 API
+          // const {
+          //   data: { results: nowPlaying },
+          // } = await testAPI.nowPlaying();
+          // const {
+          //   data: { results: upcoming },
+          // } = await testAPI.upcoming();
+          // const {
+          //   data: { results: popular },
+          // } = await testAPI.popular();
+          // setData(nowPlaying)
+          // setData(upcoming)
+          // setData(popular)
+
+          // 데이터 세팅
+          const result = await ThemeApi.getAllDocs();
+          setData(result);
         } catch {
           setIsError({ error: "Can't find data" });
         } finally {
