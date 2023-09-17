@@ -28,8 +28,8 @@ const HomeContainer = () => {
           // setData(popular)
 
           // 데이터 세팅
-          const result = await ThemeApi.getAllDocs();
-          setData(result);
+          const result = await ThemeApi.getAllDocsByCategory("공포");
+          if (result) setData(result);
         } catch {
           setIsError({ error: "Can't find data" });
         } finally {
