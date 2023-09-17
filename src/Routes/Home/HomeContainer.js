@@ -28,7 +28,8 @@ const HomeContainer = () => {
           // setData(popular)
 
           // 데이터 세팅
-          const result = await ThemeApi.getAllDocsByCategory("공포");
+          // const result = await ThemeApi.getAllDocsByCategory("공포");
+          const result = await ThemeApi.getAllDocs();
           if (result) setData(result);
         } catch {
           setIsError({ error: "Can't find data" });

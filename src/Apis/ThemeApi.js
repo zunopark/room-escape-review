@@ -1,11 +1,12 @@
 import { db } from "../firebase";
-import { collection, query, where, getDocs, doc, getDoc } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, orderBy, limit } from "firebase/firestore";
 
 export const ThemeApi = {
-    // 모든 테마 가져오기
+    // 유저 평점을 내림차순으로 현재 등록된 모든 테마 가져오기
     getAllDocs: async () => {
         try {
-            const result = await getDocs(collection(db, "Theme"));
+            const q = query(collection(db, "Theme"), orderBy("userRating", "desc"));
+            const result = await getDocs(q);
             const response = [];
             result.forEach((doc) => {
                 response.push({
@@ -52,8 +53,5 @@ export const ThemeApi = {
         } catch (err) {
             console.log(err);
         }
-    },  
-    
-    // 
-
+    },
 };
