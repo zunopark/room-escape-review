@@ -14,9 +14,9 @@ const DetailContainer = () => {
           try {
             // 데이터 세팅
             const themeResult = await ThemeApi.getOneDoc(params.id);
-            const commentResult = await CommentApi.getAllCommentsByTheme(params.id);
+            // const commentResult = await CommentApi.getAllCommentsByTheme(params.id);
             setTheme(themeResult);
-            setComment(commentResult);
+            // setComment(commentResult);
           } catch (err) {
             console.log(err);
           }

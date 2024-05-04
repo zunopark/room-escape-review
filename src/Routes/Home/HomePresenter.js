@@ -2,6 +2,7 @@ import Theme from "../../Components/Theme"
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged  } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "../../firebase";
+import Header from "../../Components/Header";
 
 const HomePresenter = ({data}) => {
   // 결국 유저 데이터는 최상단으로 빼거나 context API 등으로 전역으로 관리해야 한다. 
@@ -45,6 +46,7 @@ const HomePresenter = ({data}) => {
           : "로그인 버튼을 눌러주세요 :)"}
       </div>
     </div> */}
+        <Header />
         <div className="section">
             {data.map((item, id) => (
               <Theme key={id} item={item} />
